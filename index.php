@@ -21,7 +21,7 @@
 
 
  // variable outside the class = variable
- $object1  = new blog();
+ $object1  = new blog('title', 'content', 'auther');
 
  echo "<pre>";
  print_r($object1);
