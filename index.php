@@ -1,78 +1,22 @@
 <?php
 
-/**
- * 
- *     Class & Objects 
- *  
- *  every class has properties and methods 
- *    
- *  variable inside the class = property
- *  variable outside the class = variable
- * 
- *  function inside class = method
- *  function outside class = function
- * 
- *  ex) Blog Website 
- *      class = code to add new post , news , ...
- *      object = post , news , ...
- * 
- */
-
-#################################################################################################################################################
-
-
- class blog {
-
-    // Properties
-  
-    public $title = "default title";
-    public $content = "default content";
-    public $auther = "default auther";
-
-    const MINCHAR = 5;
-
-    // you can give the properties default value
-   
-
-    // Methods
-    // you can give the method default value
-
-
-    public function content_type($type='default type'){
-        echo "this is a $type <br>";
-    }
-
-    
-    public function info(){
-        echo "<br> the title of this blog is $this->title <br>
-              the content of this blog is $this->content <br>
-              the auther of this blog is $this->auther <br>";
-    }
-
-    public function content_length(){
-        if (strlen($this->content) < self::MINCHAR){
-            // :: -> scope resolution operator
-            echo "the content is too short";
-        }else{
-            echo "the content is ok";
-        }
-    }
-
-    public function cahnge_plog_details($t, $c, $a){
-        $this->title = $t;
-        $this->content = $c;
-        $this->auther = $a;
-    }
- }
-
+include 'class.php';
+ 
 #################################################################################################################################################
   
  $post  = new blog();
+
  // -> = object operator  
  $post->title='post title';
  $post->content='post content';
  $post->auther='auther';
- $post->date='29/1/2025';
+ $post->date='2\12\2003';
+
+ 
+//  $post->password='1234';           // Cannot access private property blog::$password
+// echo $post->password ;                // Cannot access private property blog::$password
+
+$post->change_UserPassword('1234');      // this is the right way to change private property ==> ENCAPSUALTION 
 
  $post->content_type('post'); 
  $post->info();
@@ -83,41 +27,70 @@
  print_r($post);
  echo "</pre>";
 
+
+ echo "################################################################################################################################################# <br>";
 #################################################################################################################################################
 
-
-  $news  = new blog();
-  // -> = object operator  
-  $news->title='news title';
-  $news->content='content';
-  $news->auther='auther 2';
-
-  $news->content_type('news');
-  $news->content_length();
-
-  echo "<pre>";
-  print_r($news);
-  echo "</pre>";
-
-
-#################################################################################################################################################
-
-
- $object3 = new blog(); 
-
- $object3->content_type();
-
-  echo "<pre>";
-  print_r($object3);
-  echo "</pre>";
-
-
-
-  #################################################################################################################################################
 
   $object4 = new blog();
-  $object4->cahnge_plog_details('new title', 'new content', 'new auther');
+
+  $object4->cahnge_plog_details('new title', 'new content', 'new auther');  // here num of the variabels must be == num of parametrs. 
+  $object4->change_UserPassword('2468');
 
   echo "<pre>";
   print_r($object4);
   echo "</pre>";
+
+
+
+  echo "################################################################################################################################################# <br>";
+  #################################################################################################################################################
+
+  
+
+$new = new VideoBlog();
+
+$new->change_VideoBlog_details('video title', 'video content', 'video auther', '10 minutes'); // make a new method 
+$new->change_UserPassword('test');  
+$new->content_length();
+$new->info();   // use method that already exist but i can`t modify it to add Video Duration 
+
+echo "<pre>";
+print_r($new);
+echo "</pre>";
+
+echo "#################################################################################################################################################";
+  #################################################################################################################################################
+
+
+// $objectFromAbstractClass = new test();
+// echo "<pre>";
+// print_r($objectFromAbstractClass);   // Error ==> Cannot instantiate abstract class
+// echo "</pre>";
+
+echo "################################################################################################################################################# <br>";
+  #################################################################################################################################################
+
+
+$objectFromTheInheretedClass = new test2();  
+$objectFromTheInheretedClass->FunctionName();
+
+$objectFromTheInheretedClass->AbstractMethod('arg');
+
+
+echo "<pre>";
+print_r($objectFromTheInheretedClass);
+echo "</pre>";
+
+echo "################################################################################################################################################# <br>";
+  #################################################################################################################################################
+
+
+$test = new test3();
+
+$test->AbstractMethod('me');  
+
+
+echo "<pre>";
+print_r($test);
+echo "</pre>";
