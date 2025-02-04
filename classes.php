@@ -26,7 +26,7 @@
  * 
      ## Final ##
  * 
- *  final class ClassName {} ==> this is a class you can not inheret from 
+ *  final class ClassName {} ==> this is a class you cannot inheret from 
  * 
  *  class ClassName{
  * 
@@ -117,7 +117,7 @@ class blog {
 #################################################################################################################################################
 
 
-### Abstract Class ####
+                                                                ### Abstract Class ####
 
 
 
@@ -173,7 +173,7 @@ class test3 extends test2 {
 
 
 
-                                   ## POLYMORHISM ==> INTERFACE ## 
+                                                                 ## POLYMORHISM ==> INTERFACE ## 
 
 
 interface subscribtion {
@@ -195,3 +195,29 @@ class app2 implements subscribtion{
         echo "you must give me subscription to use varnalability checker";
     }
 }
+
+
+#################################################################################################################################################
+
+
+
+                                                            ## CHAINING  METHODS ##
+
+
+
+class chaining_methods {
+    public function method1(){
+        echo "method1 <br>";
+        return $this;
+    }
+
+    public function method2(){
+        echo "method2 <br>";
+        return $this;
+    }
+
+    public function method3(){
+        echo "method3 <br>";
+        return $this;
+    }
+}                                                           

@@ -1,5 +1,14 @@
 <?php
 
+/**
+ *    ##### Static Properties & Methods #####
+ * 
+ * - static properties and methods can be accessed without needing to instantiate the class.
+ * 
+ * 
+ */
+
+
 class main {
     public $name="fares";
     public static $name2="fares2"."<br>"; 
@@ -28,5 +37,6 @@ main::printName2("ahmed"."<br>");  // --> ahmed
 
 
 $object = new main;
-// echo $object->name2;  // مش هيقرأ ال ستاتيك ف الاوبجكت الل اتعمل
+// echo $object->name2;  // مش هيقرأ ال ستاتيك الاوبجكت الل اتعمل
 echo $object->printName2("ali");  // --> هيقرا الستاتيك ميثود عادى
+
